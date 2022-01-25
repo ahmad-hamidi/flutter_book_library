@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BookWidget extends StatelessWidget {
-  final String? _title, _description, _thumbnail;
+  final String? _title, _subtitle, _thumbnail;
 
-  BookWidget(this._title, this._description, this._thumbnail);
+  BookWidget(this._title, this._subtitle, this._thumbnail);
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +13,31 @@ class BookWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Image.network(
-              _thumbnail ?? "",
-              height: 100,
-              width: 100,
-              fit: BoxFit.cover,
-            ),
+          Image.network(
+            _thumbnail ?? "",
+            height: 100,
+            width: 100,
+            fit: BoxFit.cover,
           ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 16),
-                Text(_title ?? "-"),
-                SizedBox(height: 8),
-                Text(_description ?? "-", maxLines: 2),
-                SizedBox(height: 16),
+                Padding(
+                  padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                  child: Text(
+                    _title ?? "-",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 16),
+                  child: Text(_subtitle ?? "-",
+                      maxLines: 2, overflow: TextOverflow.ellipsis),
+                ),
               ],
             ),
           )

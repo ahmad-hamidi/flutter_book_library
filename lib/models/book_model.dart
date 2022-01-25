@@ -1,7 +1,7 @@
 class BookModel {
-  String? title, description, thumbnail;
+  String? id, title, subtitle, description, thumbnail, bookUrl;
 
-  BookModel({this.title, this.description, this.thumbnail});
+  BookModel({this.id, this.title, this.subtitle, this.description, this.thumbnail, this.bookUrl});
 
   factory BookModel.fromApi(Map<String, dynamic> data) {
 
@@ -15,8 +15,11 @@ class BookModel {
     }
 
     return BookModel(
+        id: data['id'],
         title: data['volumeInfo']['title'],
         description: data['volumeInfo']['description'],
-        thumbnail: getThumbnailSafety(data));
+        subtitle: data['volumeInfo']['subtitle'],
+        thumbnail: getThumbnailSafety(data).replaceAll("http", "https"),
+        bookUrl: data['volumeInfo']['previewLink']);
   }
 }
