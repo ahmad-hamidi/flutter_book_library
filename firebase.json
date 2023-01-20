@@ -12,12 +12,20 @@
         "destination": "/index.html"
       }
     ],
-    "headers": [ {
-      "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
-      "headers": [ {
-        "key": "Access-Control-Allow-Origin",
-        "value": "*"
-      } ]
-    } ]
+    "headers": [
+      {
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "ORIGIN"
+          },
+          {
+            "key": "Access-Control-Allow-Methods",
+            "value": "PUT, GET, HEAD, POST, DELETE, OPTIONS"
+          }
+        ]
+      }
+    ]
   }
 }

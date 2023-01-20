@@ -67,14 +67,12 @@ class _RssListState extends State<RssList> {
 
   Future<RssFeed?> loadFeed() async {
     try {
-      final client = http.Client();
-      final response = await client.get(
+      final response = await http.get(
           Uri.parse("https://www.upwork.com/ab/feed/jobs/rss?q=${widget.keyUrl}"),
-      headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Referrer-Policy": "origin-when-cross-origin",
-            "Content-Type": "application/rss+xml"
-      });
+          headers: {
+            "Access-Control-Allow-Origin": "ORIGIN",
+            "Access-Control-Allow-Methods": "PUT, GET, HEAD, POST, DELETE, OPTIONS"
+          });
       // print('url ${response.request?.url}');
       var document = XmlDocument.parse(response.body);
       var rss = document.findElements('rss').first;
@@ -86,7 +84,7 @@ class _RssListState extends State<RssList> {
       }).toList();
 
       return RssFeed(
-        title: 'Android Kotlin',
+        title: 'Android Kotlin sep',
         items: newItems,
       );
     } catch (e) {

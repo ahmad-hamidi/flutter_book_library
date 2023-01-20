@@ -20,6 +20,9 @@ dependencies:
   flutter_widget_from_html: ^0.8.4
   webfeed: ^0.7.0
   shared_preferences: ^2.0.13
+  syncfusion_flutter_charts: ^20.4.44
+  shimmer: ^2.0.0
+  clipboard: ^0.1.3
 
   flutter_web_plugins:
     sdk: flutter
