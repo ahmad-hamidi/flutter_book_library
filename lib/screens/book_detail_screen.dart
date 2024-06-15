@@ -20,7 +20,7 @@ class BookDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Book Detail"),
         leading: BackButton(
-          color: Colors.white,
+          color: Colors.black,
           onPressed: () {
             if (_isBookListNotEmpty(context)) {
               Navigator.pop(context);

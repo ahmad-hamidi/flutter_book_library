@@ -27,10 +27,10 @@ class BottomSheetWidget extends StatelessWidget {
               _inputWidget(),
               SizedBox(height: 16),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.blueAccent),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent, textStyle: TextStyle(color: Colors.white)),
                 child: Padding(
                   padding: EdgeInsets.all(12),
-                  child: Text("Search", style: TextStyle(fontSize: 16)),
+                  child: Text("Search", style: TextStyle(fontSize: 16, color: Colors.white)),
                 ),
                 onPressed: () {
                   final query = _editingController.text.toString();
